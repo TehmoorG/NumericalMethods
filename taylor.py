@@ -1,27 +1,31 @@
+import numpy as np
+x = np.array([0,3.14/6])
 def exp(x, N=20):
     """
     Approximate the exponential function e^x using Taylor series.
 
     Parameters
     ----------
-    x : float
-        The value at which to evaluate the exponential function.
+    x : float or numpy.ndarray
+        The value (or array of values) at which to evaluate the exponential function.
     N : int, optional
         The number of terms in the Taylor series expansion. Default is 20.
 
     Returns
     -------
-    float
-        The approximated value of e^x.
+    numpy.ndarray
+        The approximated value (or array of values) of e^x.
 
     Examples
     --------
     >>> exp(1)
-    2.7182818284590455
+    array(2.71828183)
 
-    >>> exp(2, 10)
-    7.3887125220458545
+    >>> exp(np.array([1, 2]), 10)
+    array([2.71828183, 7.38871252])
     """
+    x = np.array(x)
+    
     result = 1.0
     factorial = 1.0
     power_of_x = 1.0
@@ -33,37 +37,38 @@ def exp(x, N=20):
 
     return result
 
+import numpy as np
+
 def sin(x, N=20):
     """
     Approximate the sine function sin(x) using Taylor series.
 
     Parameters
     ----------
-    x : float
-        The value in radians at which to evaluate the sine function.
+    x : float or numpy.ndarray
+        The value (or array of values) in radians at which to evaluate the sine function.
     N : int, optional
         The number of terms in the Taylor series expansion. Default is 20.
 
     Returns
     -------
-    float
-        The approximated value of sin(x).
+    numpy.ndarray
+        The approximated value (or array of values) of sin(x).
 
     Examples
     --------
     >>> sin(0)
-    0.0
+    array(0.)
 
-    >>> sin(math.pi / 2)
-    1.0
-
-    >>> sin(math.pi, 10)
-    1.2246467991473532e-16
+    >>> sin(np.array([0, np.pi/2, np.pi]))
+    array([ 0.        ,  1.        ,  1.2246468e-16])
     """
+    x = np.array(x, dtype=float)
+    
     result = x
-    factorial = 1
+    factorial = 1.0
     power_of_x = x
-    sign = -1
+    sign = -1.0
 
     for n in range(3, 2*N+1, 2):
         power_of_x *= x*x
@@ -73,37 +78,39 @@ def sin(x, N=20):
 
     return result
 
+
+import numpy as np
+
 def cos(x, N=20):
     """
     Approximate the cosine function cos(x) using Taylor series.
 
     Parameters
     ----------
-    x : float
-        The value in radians at which to evaluate the cosine function.
+    x : float or numpy.ndarray
+        The value (or array of values) in radians at which to evaluate the cosine function.
     N : int, optional
         The number of terms in the Taylor series expansion. Default is 20.
 
     Returns
     -------
-    float
-        The approximated value of cos(x).
+    numpy.ndarray
+        The approximated value (or array of values) of cos(x).
 
     Examples
     --------
     >>> cos(0)
-    1.0
+    array(1.)
 
-    >>> cos(math.pi / 2)
-    6.123233995736766e-17
-
-    >>> cos(math.pi, 10)
-    -1.0
+    >>> cos(np.array([0, np.pi/2, np.pi]))
+    array([ 1.        ,  6.123234e-17, -1.        ])
     """
+    x = np.array(x, dtype=float)
+    
     result = 1.0
-    factorial = 1
+    factorial = 1.0
     power_of_x = 1.0
-    sign = -1
+    sign = -1.0
 
     for n in range(2, 2*N+1, 2):
         power_of_x *= x*x
@@ -113,42 +120,47 @@ def cos(x, N=20):
 
     return result
 
+
 def tan(x, N=20):
     """
     Approximate the tangent function tan(x) using Taylor series.
 
     Parameters
     ----------
-    x : float
-        The value in radians at which to evaluate the tangent function.
+    x : float or numpy.ndarray
+        The value (or array of values) in radians at which to evaluate the tangent function.
     N : int, optional
         The number of terms in the Taylor series expansion for sin(x) and cos(x). Default is 20.
 
     Returns
     -------
-    float
-        The approximated value of tan(x).
+    numpy.ndarray
+        The approximated value (or array of values) of tan(x).
 
     Examples
     --------
     >>> tan(0)
-    0.0
+    array(0.)
 
-    >>> tan(math.pi / 4)
-    1.0
-
-    >>> tan(math.pi / 2)  # This might result in a very large value or error due to cos(pi/2) being close to 0
-    ...
+    >>> tan(np.array([0, np.pi/4]))
+    array([0., 1.])
 
     Notes
     -----
     The function computes tan(x) by dividing the Taylor series approximations of sin(x) and cos(x). 
     This may lead to inaccuracies or errors when cos(x) is close to zero.
     """
+    x = np.array(x, dtype=float)
+
     s = sin(x, N)
     c = cos(x, N)
     
-    if abs(c) < 1e-10:
-        raise ValueError("tan(x) is undefined or too large for x close to pi/2 + k*pi.")
+    # Here, we're leveraging numpy's built-in elementwise operations.
+    # The next line replaces values of c that are close to zero with NaN to prevent division by zero.
+    c = np.where(np.abs(c) < 1e-10, np.nan, c)
 
     return s / c
+
+print(sin(x))
+print(cos(x))
+print(exp([1,2,3]))
