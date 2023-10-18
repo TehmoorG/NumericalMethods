@@ -1,4 +1,3 @@
-import pytest
 import numpy as np
 from acsefunctions.taylor import sin, cos, tan, exp
 

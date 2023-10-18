@@ -8,7 +8,8 @@ def exp(x, N=10):
     Parameters
     ----------
     x : float or numpy.ndarray
-        The value (or array of values) at which to evaluate the exponential function.
+        The value (or array of values) at which to evaluate
+        the exponential function.
     N : int, optional
         The number of terms in the Taylor series expansion. Default is 10.
 
@@ -38,7 +39,8 @@ def sin(x, N=10):
     Parameters
     ----------
     x : float or numpy.ndarray
-        The value (or array of values) in radians at which to evaluate the sine function.
+        The value (or array of values) in radians at which to
+        evaluate the sine function.
     N : int, optional
         The number of terms in the Taylor series expansion. Default is 10.
 
@@ -79,7 +81,8 @@ def cos(x, N=20):
     Parameters
     ----------
     x : float or numpy.ndarray
-        The value (or array of values) in radians at which to evaluate the cosine function.
+        The value (or array of values) in radians at which
+        to evaluate the cosine function.
     N : int, optional
         The number of terms in the Taylor series expansion. Default is 20.
 
@@ -121,9 +124,11 @@ def tan(x, N=20):
     Parameters
     ----------
     x : float or numpy.ndarray
-        The value (or array of values) in radians at which to evaluate the tangent function.
+        The value (or array of values) in radians at which
+        to evaluate the tangent function.
     N : int, optional
-        The number of terms in the Taylor series expansion for sin(x) and cos(x). Default is 20.
+        The number of terms in the Taylor series expansion for
+        sin(x) and cos(x). Default is 20.
 
     Returns
     -------
@@ -140,7 +145,8 @@ def tan(x, N=20):
 
     Notes
     -----
-    The function computes tan(x) by dividing the Taylor series approximations of sin(x) and cos(x).
+    The function computes tan(x) by dividing the Taylor series
+    approximations of sin(x) and cos(x).
     This may lead to inaccuracies or errors when cos(x) is close to zero.
     """
     x = np.array(x, dtype=float)
