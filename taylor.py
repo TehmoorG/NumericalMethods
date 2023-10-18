@@ -1,6 +1,6 @@
 import numpy as np
-x = np.array([0,3.14/6])
-def exp(x, N=20):
+
+def exp(x, N=10):
     """
     Approximate the exponential function e^x using Taylor series.
 
@@ -9,26 +9,18 @@ def exp(x, N=20):
     x : float or numpy.ndarray
         The value (or array of values) at which to evaluate the exponential function.
     N : int, optional
-        The number of terms in the Taylor series expansion. Default is 20.
+        The number of terms in the Taylor series expansion. Default is 10.
 
     Returns
     -------
     numpy.ndarray
         The approximated value (or array of values) of e^x.
-
-    Examples
-    --------
-    >>> exp(1)
-    array(2.71828183)
-
-    >>> exp(np.array([1, 2]), 10)
-    array([2.71828183, 7.38871252])
     """
-    x = np.array(x)
+    x = np.asarray(x)
     
-    result = 1.0
+    result = np.ones_like(x, dtype=float)
     factorial = 1.0
-    power_of_x = 1.0
+    power_of_x = np.ones_like(x, dtype=float)
 
     for n in range(1, N+1):
         power_of_x *= x
@@ -37,9 +29,9 @@ def exp(x, N=20):
 
     return result
 
-import numpy as np
 
-def sin(x, N=20):
+
+def sin(x, N=10):
     """
     Approximate the sine function sin(x) using Taylor series.
 
@@ -48,7 +40,7 @@ def sin(x, N=20):
     x : float or numpy.ndarray
         The value (or array of values) in radians at which to evaluate the sine function.
     N : int, optional
-        The number of terms in the Taylor series expansion. Default is 20.
+        The number of terms in the Taylor series expansion. Default is 10.
 
     Returns
     -------
@@ -63,23 +55,23 @@ def sin(x, N=20):
     >>> sin(np.array([0, np.pi/2, np.pi]))
     array([ 0.        ,  1.        ,  1.2246468e-16])
     """
-    x = np.array(x, dtype=float)
+    x = np.asarray(x, dtype=float)
+    x = (x + np.pi) % (2 * np.pi) - np.pi
     
-    result = x
+    result = x.copy()
     factorial = 1.0
-    power_of_x = x
+    power_of_x = x.copy()
     sign = -1.0
 
     for n in range(3, 2*N+1, 2):
-        power_of_x *= x*x
-        factorial *= n*(n-1)
-        result += sign * power_of_x / factorial
+        power_of_x *= x * x  # raises x to the next odd power
+        factorial *= n * (n-1)
+        term = sign * power_of_x / factorial
+        result += term
         sign *= -1
-
     return result
 
 
-import numpy as np
 
 def cos(x, N=20):
     """
@@ -105,17 +97,19 @@ def cos(x, N=20):
     >>> cos(np.array([0, np.pi/2, np.pi]))
     array([ 1.        ,  6.123234e-17, -1.        ])
     """
-    x = np.array(x, dtype=float)
+    x = np.asarray(x, dtype=float)
+    x = (x + np.pi) % (2 * np.pi) - np.pi
     
-    result = 1.0
+    result = np.ones_like(x, dtype=float)
     factorial = 1.0
-    power_of_x = 1.0
+    power_of_x = np.ones_like(x, dtype=float)
     sign = -1.0
 
     for n in range(2, 2*N+1, 2):
-        power_of_x *= x*x
-        factorial *= n*(n-1)
-        result += sign * power_of_x / factorial
+        power_of_x *= x * x
+        factorial *= n * (n-1)
+        term = sign * power_of_x / factorial
+        result += term
         sign *= -1
 
     return result
@@ -154,13 +148,11 @@ def tan(x, N=20):
 
     s = sin(x, N)
     c = cos(x, N)
-    
-    # Here, we're leveraging numpy's built-in elementwise operations.
-    # The next line replaces values of c that are close to zero with NaN to prevent division by zero.
+
     c = np.where(np.abs(c) < 1e-10, np.nan, c)
 
     return s / c
 
-print(sin(x))
-print(cos(x))
-print(exp([1,2,3]))
+
+x_values = np.array([0, np.pi/2, np.pi, 3.14])
+print(sin(x_values))
