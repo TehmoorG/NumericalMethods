@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from taylor import sin, cos, tan, exp
+from acsefunctions.taylor import sin, cos, tan, exp
 
 
 
