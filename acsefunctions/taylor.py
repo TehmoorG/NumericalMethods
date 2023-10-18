@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def exp(x, N=10):
     """
     Approximate the exponential function e^x using Taylor series.
@@ -17,18 +18,17 @@ def exp(x, N=10):
         The approximated value (or array of values) of e^x.
     """
     x = np.asarray(x)
-    
+
     result = np.ones_like(x, dtype=float)
     factorial = 1.0
     power_of_x = np.ones_like(x, dtype=float)
 
-    for n in range(1, N+1):
+    for n in range(1, N + 1):
         power_of_x *= x
         factorial *= n
         result += power_of_x / factorial
 
     return result
-
 
 
 def sin(x, N=10):
@@ -57,20 +57,19 @@ def sin(x, N=10):
     """
     x = np.asarray(x, dtype=float)
     x = (x + np.pi) % (2 * np.pi) - np.pi
-    
+
     result = x.copy()
     factorial = 1.0
     power_of_x = x.copy()
     sign = -1.0
 
-    for n in range(3, 2*N+1, 2):
+    for n in range(3, 2 * N + 1, 2):
         power_of_x *= x * x  # raises x to the next odd power
-        factorial *= n * (n-1)
+        factorial *= n * (n - 1)
         term = sign * power_of_x / factorial
         result += term
         sign *= -1
     return result
-
 
 
 def cos(x, N=20):
@@ -99,15 +98,15 @@ def cos(x, N=20):
     """
     x = np.asarray(x, dtype=float)
     x = (x + np.pi) % (2 * np.pi) - np.pi
-    
+
     result = np.ones_like(x, dtype=float)
     factorial = 1.0
     power_of_x = np.ones_like(x, dtype=float)
     sign = -1.0
 
-    for n in range(2, 2*N+1, 2):
+    for n in range(2, 2 * N + 1, 2):
         power_of_x *= x * x
-        factorial *= n * (n-1)
+        factorial *= n * (n - 1)
         term = sign * power_of_x / factorial
         result += term
         sign *= -1
@@ -141,7 +140,7 @@ def tan(x, N=20):
 
     Notes
     -----
-    The function computes tan(x) by dividing the Taylor series approximations of sin(x) and cos(x). 
+    The function computes tan(x) by dividing the Taylor series approximations of sin(x) and cos(x).
     This may lead to inaccuracies or errors when cos(x) is close to zero.
     """
     x = np.array(x, dtype=float)
@@ -154,5 +153,5 @@ def tan(x, N=20):
     return s / c
 
 
-x_values = np.array([0, np.pi/2, np.pi, 3.14])
+x_values = np.array([0, np.pi / 2, np.pi, 3.14])
 print(sin(x_values))
