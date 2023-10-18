@@ -1,0 +1,4 @@
+flake8
+numpy>1.16
+scipy
+pytest
