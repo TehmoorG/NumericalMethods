@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def exp(x, N=10):
+def exp(x, N=200):
     """
     Approximate the exponential function e^x using Taylor series.
 
@@ -32,7 +32,7 @@ def exp(x, N=10):
     return result
 
 
-def sin(x, N=10):
+def sin(x, N=20):
     """
     Approximate the sine function sin(x) using Taylor series.
 
@@ -159,5 +159,5 @@ def tan(x, N=20):
     return s / c
 
 
-x_values = np.array([0, np.pi / 2, np.pi, 3.14])
-print(sin(x_values))
+x_values = np.array([3.7])
+print(exp(x_values, 50))
