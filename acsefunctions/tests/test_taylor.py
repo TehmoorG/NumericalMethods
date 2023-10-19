@@ -1,15 +1,17 @@
 import numpy as np
 from acsefunctions.taylor import sin, cos, tan, exp
 
+
 class TestSin:
     def test_zero(self):
         assert np.allclose(sin(0), np.array([0.0]))
-        
+
     def test_pi_over_two(self):
         assert np.allclose(sin(np.pi / 2), np.array([1.0]))
-        
+
     def test_pi(self):
         assert np.allclose(sin(np.pi), np.array([0.0]))
+
 
 class TestCos:
     def test_zero(self):
@@ -17,9 +19,10 @@ class TestCos:
 
     def test_pi_over_two(self):
         assert np.allclose(cos(np.pi / 2), np.array([0.0]))
-        
+
     def test_pi(self):
         assert np.allclose(cos(np.pi), np.array([-1.0]))
+
 
 class TestTan:
     def test_zero(self):
@@ -27,6 +30,7 @@ class TestTan:
 
     def test_pi_over_four(self):
         assert np.allclose(tan(np.pi / 4), np.array([1.0]))
+
 
 class TestExp:
     def test_one(self):
