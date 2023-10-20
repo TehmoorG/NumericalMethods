@@ -6,8 +6,8 @@ class TestSin:
     """
     Test cases for the `sin` function.
 
-    This class contains unit tests that validate the behavior of the `sin` function
-    for specific angle values and convergence behavior.
+    This class contains unit tests that validate the behavior of the
+    `sin` function for specific angle values and convergence behavior.
     """
 
     def test_zero(self):
@@ -109,7 +109,8 @@ class TestExp:
     Test cases for the `exp` function.
 
     This class contains test cases for the `exp` function using various inputs.
-    It checks if the results are close to the expected values within a specified tolerance.
+    It checks if the results are close to the expected values
+    within a specified tolerance.
     """
 
     def test_one(self):

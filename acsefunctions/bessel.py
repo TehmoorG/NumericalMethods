@@ -8,7 +8,8 @@ def factorial(n):
     Parameters
     ----------
     n : int or np.ndarray of int
-        An integer or an array of integers for which the factorial is to be computed.
+        An integer or an array of integers for which
+        the factorial is to be computed.
 
     Returns
     -------
@@ -21,7 +22,7 @@ def factorial(n):
     120
 
     >>> factorial(np.array([3, 4, 5]))
-    array([ 6,  24, 120])
+    array([  6,  24, 120])
     """
     if isinstance(n, list):
         n = np.array(n)
@@ -61,13 +62,13 @@ def gamma_function_lanczos(z):
     Examples
     --------
     >>> gamma_function_lanczos(4.5)
-    11.631728396567448
+    array([11.6317284])
 
     >>> gamma_function_lanczos(np.array([4, 5, 6]))
-    array([ 6., 24., 120.])
+    array([  6.,  24., 120.])
 
     >>> gamma_function_lanczos(0.5 + 1j)
-    array([0.52848222+0.88001155j])
+    array([0.30069462-0.42496788j])
 
     Notes
     -----
@@ -111,7 +112,8 @@ def gamma_function_lanczos(z):
 
 def bessel_function(alpha, x, terms=100):
     """
-    Compute the Bessel function of the first kind using its series representation.
+    Compute the Bessel function of the first kind
+    using its series representation.
 
     Parameters
     ----------
@@ -119,10 +121,12 @@ def bessel_function(alpha, x, terms=100):
         The order of the Bessel function.
 
     x : float or np.ndarray
-        The value or array of values at which to evaluate the Bessel function.
+        The value or array of values at which to
+        evaluate the Bessel function.
 
     terms : int, optional
-        The number of terms to use in the series expansion. Default is 100.
+        The number of terms to use in the series expansion.
+        Default is 100.
 
     Returns
     -------
@@ -132,22 +136,25 @@ def bessel_function(alpha, x, terms=100):
     Examples
     --------
     >>> bessel_function(1, 2)
-    0.5767248077568734
+    array([0.57672481])
 
     >>> bessel_function(0, 0.5)
-    0.9384698072408128
+    array([0.93846981])
 
     Notes
     -----
-    The function employs the series representation of the Bessel function of the first kind.
-    If the computation involves complex numbers, the results are returned in `np.complex128` format.
+    The function employs the series representation of
+    the Bessel function of the first kind.
+    If the computation involves complex numbers, the
+    results are returned in `np.complex128` format.
     If all values are real, the result is returned as a float.
     """
     result = np.complex128(0.0)  # initialize as complex128
     for m in range(terms):
         term = (
             ((-1) ** m)
-            / (np.complex128(factorial(m)) * gamma_function_lanczos(m + alpha + 1))
+            / (np.complex128(factorial(m))
+               * gamma_function_lanczos(m + alpha + 1))
         ) * ((x / 2) ** (2 * m + alpha))
         result += term
         # Check if all values are real and if so, return a real array

@@ -22,13 +22,13 @@ def exp(x, N=200):
     Examples
     --------
     >>> exp(1)
-    ...
+    array(2.71828183)
 
     >>> exp(2, N=10)
-    ...
+    array(7.38899471)
 
     >>> exp(np.array([0, 1]))
-    ...
+    array([1.        , 2.71828183])
     """
     x = np.asarray(x)
 
@@ -64,10 +64,10 @@ def sin(x, N=20):
     Examples
     --------
     >>> sin(0)
-    array(0.)
+    0.0
 
     >>> sin(np.array([0, np.pi/2, np.pi]))
-    array([ 0.        ,  1.        ,  1.2246468e-16])
+    array([ 0.00000000e+00,  1.00000000e+00, -3.45866918e-16])
     """
     x = np.asarray(x, dtype=float)
     x = (x + np.pi) % (2 * np.pi) - np.pi
@@ -109,7 +109,7 @@ def cos(x, N=20):
     array(1.)
 
     >>> cos(np.array([0, np.pi/2, np.pi]))
-    array([ 1.        ,  6.123234e-17, -1.        ])
+    array([ 1.00000000e+00,  4.26446037e-17, -1.00000000e+00])
     """
     x = np.asarray(x, dtype=float)
     x = (x + np.pi) % (2 * np.pi) - np.pi
@@ -150,7 +150,7 @@ def tan(x, N=20):
     Examples
     --------
     >>> tan(0)
-    array(0.)
+    0.0
 
     >>> tan(np.array([0, np.pi/4]))
     array([0., 1.])

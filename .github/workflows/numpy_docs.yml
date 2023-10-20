@@ -30,4 +30,4 @@ jobs:
 
     - name: Lint with pydocstlyec
       run: |
-        pydocstyle --convention=numpy .
+        pydocstyle --convention=numpy acsefunctions/

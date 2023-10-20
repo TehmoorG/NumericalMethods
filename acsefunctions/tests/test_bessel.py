@@ -2,7 +2,9 @@ import pytest
 import numpy as np
 from scipy.special import gamma as scipy_gamma
 from scipy.special import jv as scipy_bessel
-from acsefunctions.bessel import factorial, gamma_function_lanczos, bessel_function
+from acsefunctions.bessel import factorial
+from acsefunctions.bessel import gamma_function_lanczos
+from acsefunctions.bessel import bessel_function
 
 
 class TestFactorial:
@@ -46,7 +48,11 @@ class TestGammaFunction:
         """
         # Test on single values
         for z in [0.5, 1, 2, 3.5, 5]:
-            assert np.isclose(gamma_function_lanczos(z), scipy_gamma(z), atol=1e-5)
+            assert np.isclose(
+                              gamma_function_lanczos(z),
+                              scipy_gamma(z),
+                              atol=1e-5
+                              )
 
         # Test on a numpy array
         arr = np.array([0.5, 1, 2, 3.5, 5])
@@ -56,7 +62,12 @@ class TestGammaFunction:
         )
 
         negative_integers = np.array([-1, -2, -3, -4, -5])
-        expected_results = np.array([-np.inf, -np.inf, -np.inf, -np.inf, -np.inf])
+        expected_results = np.array([
+            -np.inf,
+            -np.inf,
+            -np.inf,
+            -np.inf,
+            -np.inf])
         results = gamma_function_lanczos(negative_integers)
         assert np.all(
             results == expected_results
@@ -66,7 +77,10 @@ class TestGammaFunction:
         assert np.isclose(gamma_function_lanczos(0), (scipy_gamma(0) * -1))
 
         # Test on a large value
-        assert np.isclose(gamma_function_lanczos(20), scipy_gamma(20), atol=1e-5)
+        assert np.isclose(gamma_function_lanczos(20),
+                          scipy_gamma(20),
+                          atol=1e-5
+                          )
 
 
 class TestBesselFunction:
@@ -88,7 +102,8 @@ class TestBesselFunction:
 
     def test_bessel_function_complex_numbers(self):
         """
-        Test bessel_function against scipy's Bessel function for complex numbers.
+        Test bessel_function against scipy's Bessel function
+        for complex numbers.
         """
         alphas = [1, 0.5, 10, 50]
         xs = [1 + 1j, 1 - 1j, 0.5, 10, 2 - 2j]
@@ -107,7 +122,8 @@ class TestBesselFunction:
 
     def test_bessel_function_symmetry(self):
         """
-        Test the symmetry property Jn(-x) = (-1)^n Jn(x) for the bessel_function.
+        Test the symmetry property Jn(-x) = (-1)^n Jn(x)
+        for the bessel_function.
         """
         alpha = np.random.randint(0, 11)
         x = np.random.rand()
