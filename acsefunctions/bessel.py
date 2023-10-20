@@ -61,7 +61,7 @@ def _single_factorial(value):
 def bessel_function(alpha, x, terms=100):
     result = np.complex128(0.0)  # initialize as complex128
     for m in range(terms):
-        term = (((-1)**m) / (np.complex128(factorial(m)) * gamma_function_euler(m+alpha+1))) * ((x / 2)**(2*m + alpha))
+        term = (((-1)**m) / (np.complex128(factorial(m)) * gamma_function_lanczos(m+alpha+1))) * ((x / 2)**(2*m + alpha))
         result += term
     return result
 
