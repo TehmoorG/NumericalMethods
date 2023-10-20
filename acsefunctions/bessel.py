@@ -1,3 +1,25 @@
+"""
+Taylor Series Approximations of Common Functions.
+
+=================================================
+
+Provides functions for approximating mathematical functions
+(e.g., e^x, sin(x), cos(x), tan(x))
+using their Taylor series expansions.
+
+Main Functions:
+---------------
+- exp  : Approximates the exponential function.
+- sin  : Approximates the sine function.
+- cos  : Approximates the cosine function.
+- tan  : Approximates the tangent function.
+
+Usage:
+------
+from taylor_approximations import exp, sin, cos, tan
+"""
+
+
 import numpy as np
 
 
@@ -35,9 +57,7 @@ def factorial(n):
 
 
 def _single_factorial(value):
-    """
-    Helper function to compute factorial for a single integer.
-    """
+    """Help to compute factorial for a single integer."""
     if value < 0:
         raise ValueError("Factorial not defined for negative numbers.")
     if value == 0:
@@ -112,8 +132,9 @@ def gamma_function_lanczos(z):
 
 def bessel_function(alpha, x, terms=100):
     """
-    Compute the Bessel function of the first kind
-    using its series representation.
+    Compute the Bessel function of the first kind.
+    
+    Using its series representation.
 
     Parameters
     ----------

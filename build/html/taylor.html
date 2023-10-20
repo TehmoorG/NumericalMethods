@@ -62,7 +62,7 @@ to evaluate the cosine function.</p>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">]))</span>
-<span class="go">array([ 1.        ,  6.123234e-17, -1.        ])</span>
+<span class="go">array([ 1.00000000e+00,  4.26446037e-17, -1.00000000e+00])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -91,15 +91,15 @@ Default is 200.</p>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">...</span>
+<span class="go">array(2.71828183)</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="gp">...</span>
+<span class="go">array(7.38899471)</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
-<span class="gp">...</span>
+<span class="go">array([1.        , 2.71828183])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -127,11 +127,11 @@ evaluate the sine function.</p>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="go">array(0.)</span>
+<span class="go">0.0</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">]))</span>
-<span class="go">array([ 0.        ,  1.        ,  1.2246468e-16])</span>
+<span class="go">array([ 0.00000000e+00,  1.00000000e+00, -3.45866918e-16])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -164,7 +164,7 @@ approximations of sin(x) and cos(x).
 This may lead to inaccuracies or errors when cos(x) is close to zero.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="go">array(0.)</span>
+<span class="go">0.0</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">]))</span>

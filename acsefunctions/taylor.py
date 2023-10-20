@@ -1,3 +1,21 @@
+"""
+Taylor Series Approximations of Common Functions
+================================================
+
+Provides functions for approximating mathematical functions
+(e.g., e^x, sin(x), cos(x), tan(x))
+using their Taylor series expansions.
+
+Main Functions:
+- exp  : Approximates the exponential function.
+- sin  : Approximates the sine function.
+- cos  : Approximates the cosine function.
+- tan  : Approximates the tangent function.
+
+Usage:
+from taylor_approximations import exp, sin, cos, tan
+"""
+
 import numpy as np
 
 

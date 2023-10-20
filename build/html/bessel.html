@@ -39,15 +39,18 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="acsefunctions.bessel.bessel_function">
 <span class="sig-prename descclassname"><span class="pre">acsefunctions.bessel.</span></span><span class="sig-name descname"><span class="pre">bessel_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#acsefunctions.bessel.bessel_function" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the Bessel function of the first kind using its series representation.</p>
+<dd><p>Compute the Bessel function of the first kind
+using its series representation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>alpha</strong><span class="classifier">float</span></dt><dd><p>The order of the Bessel function.</p>
 </dd>
-<dt><strong>x</strong><span class="classifier">float or np.ndarray</span></dt><dd><p>The value or array of values at which to evaluate the Bessel function.</p>
+<dt><strong>x</strong><span class="classifier">float or np.ndarray</span></dt><dd><p>The value or array of values at which to
+evaluate the Bessel function.</p>
 </dd>
-<dt><strong>terms</strong><span class="classifier">int, optional</span></dt><dd><p>The number of terms to use in the series expansion. Default is 100.</p>
+<dt><strong>terms</strong><span class="classifier">int, optional</span></dt><dd><p>The number of terms to use in the series expansion.
+Default is 100.</p>
 </dd>
 </dl>
 </dd>
@@ -59,16 +62,18 @@
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>The function employs the series representation of the Bessel function of the first kind.
-If the computation involves complex numbers, the results are returned in <cite>np.complex128</cite> format.
+<p>The function employs the series representation of
+the Bessel function of the first kind.
+If the computation involves complex numbers, the
+results are returned in <cite>np.complex128</cite> format.
 If all values are real, the result is returned as a float.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bessel_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="go">0.5767248077568734</span>
+<span class="go">array([0.57672481])</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bessel_function</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="go">0.9384698072408128</span>
+<span class="go">array([0.93846981])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -80,7 +85,8 @@ If all values are real, the result is returned as a float.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>n</strong><span class="classifier">int or np.ndarray of int</span></dt><dd><p>An integer or an array of integers for which the factorial is to be computed.</p>
+<dt><strong>n</strong><span class="classifier">int or np.ndarray of int</span></dt><dd><p>An integer or an array of integers for which
+the factorial is to be computed.</p>
 </dd>
 </dl>
 </dd>
@@ -125,15 +131,15 @@ If all values are real, the result is returned as a float.</p>
 For negative real values that are whole numbers, the function returns -inf.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gamma_function_lanczos</span><span class="p">(</span><span class="mf">4.5</span><span class="p">)</span>
-<span class="go">11.631728396567448</span>
+<span class="go">array([11.6317284])</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gamma_function_lanczos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
-<span class="go">array([ 6., 24., 120.])</span>
+<span class="go">array([  6.,  24., 120.])</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gamma_function_lanczos</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="p">)</span>
-<span class="go">array([0.52848222+0.88001155j])</span>
+<span class="go">array([0.30069462-0.42496788j])</span>
 </pre></div>
 </div>
 </dd></dl>
