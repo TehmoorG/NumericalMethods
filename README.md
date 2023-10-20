@@ -1,8 +1,45 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/DuPH9OCA)
-# MPM assessment 2
+# ACSE Functions Library
 
-DEADLINE: Friday the 20th of October, 2023, at 16:00 (Please ensure all code is submitted to your GitHub repository by this time).
+This library provides a collection of mathematical functions, including Taylor series approximations for trigonometric and exponential functions.
 
-See `assessment.pdf` for details regarding completing the assessment. You may use and modify any files from https://github.com/rhodrin/ci_mpm or https://github.com/rhodrin/environments_mpm without reference as a basis for writing your package.
+## Installation
 
-In your final submission, this README should be re-written as outlined in assessment.pdf.
+Ensure you have Python 3.x installed. Clone the repository and navigate to the project directory:
+
+```bash
+git clone [your-repository-link]
+cd mpm-assessment-2-acse-tg1523
+```
+### Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Features
+
+- **Taylor Series Approximations:** Provides approximations for functions like `sin`, `cos`, `tan`, and `exp`.
+- **Bessel Functions:** Efficient computation of Bessel functions.
+- [Add other features or modules here.]
+
+## Usage
+
+Here's a basic example of how to use the Taylor series approximation for the `exp` function:
+
+```python
+from acsefunctions.taylor import exp
+result = exp(5, N=20)
+print(result)
+```
+
+## Accuracy Analysis
+
+We've conducted accuracy analysis for our Taylor series approximations, comparing them against established libraries like NumPy. Detailed analysis can be found in the [Accuracy Analysis](#accuracy-analysis) section.
+
+## Testing
+
+Tests are available for all the major functions. Execute the tests using:
+
+```bash
+pytest .
+```
