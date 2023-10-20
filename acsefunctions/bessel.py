@@ -1,8 +1,6 @@
 import numpy as np
-import functools
 
 
-@functools.lru_cache(maxsize=None)  # Unbounded cache
 def factorial(n):
     """
     Compute the factorial of n.
@@ -23,8 +21,11 @@ def factorial(n):
     120
 
     >>> factorial(np.array([3, 4, 5]))
-    array([  6,  24, 120])
+    array([ 6,  24, 120])
     """
+    if isinstance(n, list):
+        n = np.array(n)
+
     if isinstance(n, np.ndarray):
         vectorized_factorial = np.vectorize(_single_factorial)
         return vectorized_factorial(n)
@@ -32,7 +33,6 @@ def factorial(n):
         return _single_factorial(n)
 
 
-@functools.lru_cache(maxsize=None)  # Unbounded cache
 def _single_factorial(value):
     """
     Helper function to compute factorial for a single integer.

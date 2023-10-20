@@ -1,4 +1,4 @@
-name: mpm2
+name: acse_env
 channels:
   - defaults
   - conda-forge
@@ -9,3 +9,6 @@ dependencies:
   - scipy
   - flake8
   - pytest
+  - pydocstyle
+  - numpydoc
+  - sphinx

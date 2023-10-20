@@ -169,7 +169,3 @@ def tan(x, N=20):
     c = np.where(np.abs(c) < 1e-10, np.nan, c)
 
     return s / c
-
-
-x_values = np.array([3.7])
-print(exp(x_values, 50))

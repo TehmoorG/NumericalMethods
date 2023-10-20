@@ -22,7 +22,9 @@ class TestFactorial:
         """
         Ensure factorial function raises error for negative integers.
         """
-        with pytest.raises(ValueError, match="Factorial not defined for negative numbers."):
+        with pytest.raises(
+            ValueError, match="Factorial not defined for negative numbers."
+        ):
             factorial(-1)
 
 
@@ -49,7 +51,9 @@ class TestGammaFunction:
         # Test on a numpy array
         arr = np.array([0.5, 1, 2, 3.5, 5])
         expected_result = scipy_gamma(arr)
-        np.testing.assert_allclose(gamma_function_lanczos(arr), expected_result, atol=1e-5)
+        np.testing.assert_allclose(
+            gamma_function_lanczos(arr), expected_result, atol=1e-5
+        )
 
         negative_integers = np.array([-1, -2, -3, -4, -5])
         expected_results = np.array([-np.inf, -np.inf, -np.inf, -np.inf, -np.inf])
