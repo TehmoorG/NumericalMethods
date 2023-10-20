@@ -49,11 +49,7 @@ class TestCos:
     # Add test to make see if a high value of N converges by reducing tolerance
 
     def test_pi_over_6(self):
-        assert np.isclose(
-            cos(np.pi / 6, 100),
-            np.array([np.sqrt(3) / 2]),
-            atol=1e-10
-            )
+        assert np.isclose(cos(np.pi / 6, 100), np.array([np.sqrt(3) / 2]), atol=1e-10)
 
 
 class TestTan:
@@ -72,11 +68,7 @@ class TestTan:
     # Add test to make see if a high value of N converges by reducing tolerance
 
     def test_pi_over_6(self):
-        assert np.isclose(
-                tan(np.pi / 6, 100),
-                np.array([np.sqrt(3) / 3]),
-                atol=1e-10
-                )
+        assert np.isclose(tan(np.pi / 6, 100), np.array([np.sqrt(3) / 3]), atol=1e-10)
 
 
 class TestExp:

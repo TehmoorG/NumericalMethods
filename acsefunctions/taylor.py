@@ -11,12 +11,24 @@ def exp(x, N=200):
         The value (or array of values) at which to evaluate
         the exponential function.
     N : int, optional
-        The number of terms in the Taylor series expansion. Default is 10.
+        The number of terms in the Taylor series expansion.
+        Default is 200.
 
     Returns
     -------
     numpy.ndarray
         The approximated value (or array of values) of e^x.
+
+    Examples
+    --------
+    >>> exp(1)
+    ...
+
+    >>> exp(2, N=10)
+    ...
+
+    >>> exp(np.array([0, 1]))
+    ...
     """
     x = np.asarray(x)
 
@@ -42,7 +54,7 @@ def sin(x, N=20):
         The value (or array of values) in radians at which to
         evaluate the sine function.
     N : int, optional
-        The number of terms in the Taylor series expansion. Default is 10.
+        The number of terms in the Taylor series expansion. Default is 20.
 
     Returns
     -------
