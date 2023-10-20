@@ -151,7 +151,7 @@ def bessel_function(alpha, x, terms=100):
         ) * ((x / 2) ** (2 * m + alpha))
         result += term
         # Check if all values are real and if so, return a real array
-    if np.all(np.isreal(results)):
+    if np.all(np.isreal(result)):
         return result.real
     else:
         return result
