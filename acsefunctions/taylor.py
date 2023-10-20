@@ -1,5 +1,6 @@
 """
-Taylor Series Approximations of Common Functions
+Taylor Series Approximations of Common Functions.
+
 ================================================
 
 Provides functions for approximating mathematical functions

@@ -133,8 +133,6 @@ def gamma_function_lanczos(z):
 def bessel_function(alpha, x, terms=100):
     """
     Compute the Bessel function of the first kind.
-    
-    Using its series representation.
 
     Parameters
     ----------
