@@ -29,6 +29,21 @@ class TestFactorial:
         ):
             factorial(-1)
 
+    def test_factorial_large_numbers(self):
+        """
+        Test factorial function for larger integers to ensure accuracy and performance.
+        """
+        assert factorial(20) == 2432902008176640000
+
+    def test_factorial_sequence(self):
+        """
+        Test factorial on a sequence of numbers to ensure consistency.
+        """
+        numbers = range(1, 6)  # Testing factorial from 1! to 5!
+        expected = [1, 2, 6, 24, 120]
+        for num, exp in zip(numbers, expected):
+            assert factorial(num) == exp
+
 
 class TestGammaFunction:
     """
@@ -81,7 +96,14 @@ class TestGammaFunction:
                           scipy_gamma(20),
                           atol=1e-5
                           )
-
+    def test_gamma_half_integers(self):
+        """
+        Test gamma function for half-integer values where exact values are known.
+        """
+        half_integers = [0.5, 1.5, 2.5, 3.5]
+        expected_results = [np.sqrt(np.pi), 0.5 * np.sqrt(np.pi), 3 / 4 * np.sqrt(np.pi), 15 / 8 * np.sqrt(np.pi)]
+        for z, expected in zip(half_integers, expected_results):
+            assert np.isclose(gamma_function_lanczos(z), expected, atol=1e-5)
 
 class TestBesselFunction:
     """
