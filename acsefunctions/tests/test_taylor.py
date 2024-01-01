@@ -43,7 +43,6 @@ class TestSin:
         assert np.allclose(sin(x), -sin(-x))  # sin should be an odd function
 
 
-
 class TestCos:
     """
     Test cases for the `cos` function.
@@ -154,7 +153,6 @@ class TestExp:
         expected = np.exp(x)
         assert np.allclose(exp(x), expected)
 
-    
     def test_exp_2d_array_input(self):
         # Testing with a 2D array input
         x = np.array([[0, 1], [2, 3]])
@@ -172,4 +170,6 @@ class TestExp:
         for shape in [(5,), (3, 3), (2, 2, 2), (1, 4, 2)]:
             x = np.random.rand(*shape)
             expected = np.exp(x)
-            assert np.allclose(exp(x), expected), f"exp function should handle array of shape {shape}."
+            assert np.allclose(
+                exp(x), expected
+            ), f"exp function should handle array of shape {shape}."

@@ -63,11 +63,7 @@ class TestGammaFunction:
         """
         # Test on single values
         for z in [0.5, 1, 2, 3.5, 5]:
-            assert np.isclose(
-                              gamma_function_lanczos(z),
-                              scipy_gamma(z),
-                              atol=1e-5
-                              )
+            assert np.isclose(gamma_function_lanczos(z), scipy_gamma(z), atol=1e-5)
 
         # Test on a numpy array
         arr = np.array([0.5, 1, 2, 3.5, 5])
@@ -77,12 +73,7 @@ class TestGammaFunction:
         )
 
         negative_integers = np.array([-1, -2, -3, -4, -5])
-        expected_results = np.array([
-            -np.inf,
-            -np.inf,
-            -np.inf,
-            -np.inf,
-            -np.inf])
+        expected_results = np.array([-np.inf, -np.inf, -np.inf, -np.inf, -np.inf])
         results = gamma_function_lanczos(negative_integers)
         assert np.all(
             results == expected_results
@@ -92,18 +83,22 @@ class TestGammaFunction:
         assert np.isclose(gamma_function_lanczos(0), (scipy_gamma(0) * -1))
 
         # Test on a large value
-        assert np.isclose(gamma_function_lanczos(20),
-                          scipy_gamma(20),
-                          atol=1e-5
-                          )
+        assert np.isclose(gamma_function_lanczos(20), scipy_gamma(20), atol=1e-5)
+
     def test_gamma_half_integers(self):
         """
         Test gamma function for half-integer values where exact values are known.
         """
         half_integers = [0.5, 1.5, 2.5, 3.5]
-        expected_results = [np.sqrt(np.pi), 0.5 * np.sqrt(np.pi), 3 / 4 * np.sqrt(np.pi), 15 / 8 * np.sqrt(np.pi)]
+        expected_results = [
+            np.sqrt(np.pi),
+            0.5 * np.sqrt(np.pi),
+            3 / 4 * np.sqrt(np.pi),
+            15 / 8 * np.sqrt(np.pi),
+        ]
         for z, expected in zip(half_integers, expected_results):
             assert np.isclose(gamma_function_lanczos(z), expected, atol=1e-5)
+
 
 class TestBesselFunction:
     """
