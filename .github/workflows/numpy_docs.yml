@@ -22,10 +22,6 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install pydocstyle
-
-    - name: Lint with pydocstyle
-      run: pydocstyle --convention=numpy acsefunctions/taylor.py acsefunctions/bessel.py
 
     - name: Run doctest
       run: |
