@@ -1,5 +1,16 @@
-__pycache__
-.pytest_cache
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Caches and Logs
+.pytest_cache/
+
+# Distribution / packaging
+.Python
 build/
-.doctrees/
-.eggs/
+dist/
+*.egg-info/
+*.egg
+
+# Sphinx documentation
+docs/_build/
