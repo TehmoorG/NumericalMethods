@@ -1,6 +1,6 @@
 # ACSE Functions Library
 
-This library provides a collection of mathematical functions, including Taylor series approximations for trigonometric and exponential functions.
+This library provides a collection of mathematical functions, including Taylor series approximations for trigonometric and exponential functions.These implementations were part of an academic assignment aimed at learning modern programming methods and enhancing code quality, performance, and understanding how packages are created and work.
 
 ## Installation
 
