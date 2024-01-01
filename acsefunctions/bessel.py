@@ -1,4 +1,23 @@
+"""
+Special Mathematical Functions (acsefunctions.bessel)
 
+This module provides functions for computing various special mathematical functions
+including factorials, gamma functions, and Bessel functions of the first kind. These
+functions are often used in scientific computing, physics, and engineering applications.
+
+Functions:
+- factorial(n): Compute the factorial of an integer or array of integers.
+- gamma_function_lanczos(z): Compute the gamma function using the Lanczos approximation.
+- bessel_function(alpha, x, terms=100): Compute the Bessel function of the first kind.
+
+The module is designed to be used with numpy arrays for efficient computation, especially
+for vectorized operations over arrays of numbers.
+
+Notes:
+- The functions are implemented with numerical stability and efficiency in mind.
+- The Bessel function implementation is based on its series representation and is 
+  most accurate for small orders and arguments.
+"""
 import numpy as np
 
 
