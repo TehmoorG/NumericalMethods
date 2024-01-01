@@ -13,9 +13,9 @@ Functions:
 The module is designed to be used with numpy arrays for efficient computation, especially
 for vectorized operations over arrays of numbers.
 
-Notes:
+Notes
 - The functions are implemented with numerical stability and efficiency in mind.
-- The Bessel function implementation is based on its series representation and is 
+- The Bessel function implementation is based on its series representation and is
   most accurate for small orders and arguments.
 """
 import numpy as np
@@ -85,7 +85,7 @@ def _single_factorial(value):
     1
 
     Handling negative input by raising ValueError:
-    >>> _single_factorial(-1)  
+    >>> _single_factorial(-1)
     Traceback (most recent call last):
     ...
     ValueError: Factorial not defined for negative numbers.
@@ -204,8 +204,7 @@ def bessel_function(alpha, x, terms=100):
     for m in range(terms):
         term = (
             ((-1) ** m)
-            / (np.complex128(factorial(m))
-               * gamma_function_lanczos(m + alpha + 1))
+            / (np.complex128(factorial(m)) * gamma_function_lanczos(m + alpha + 1))
         ) * ((x / 2) ** (2 * m + alpha))
         result += term
         # Check if all values are real and if so, return a real array
