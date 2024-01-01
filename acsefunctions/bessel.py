@@ -1,24 +1,3 @@
-"""
-Taylor Series Approximations of Common Functions.
-
-=================================================
-
-Provides functions for approximating mathematical functions
-(e.g., e^x, sin(x), cos(x), tan(x))
-using their Taylor series expansions.
-
-Main Functions:
----------------
-- exp  : Approximates the exponential function.
-- sin  : Approximates the sine function.
-- cos  : Approximates the cosine function.
-- tan  : Approximates the tangent function.
-
-Usage:
-------
-from taylor_approximations import exp, sin, cos, tan
-"""
-
 
 import numpy as np
 
@@ -57,7 +36,41 @@ def factorial(n):
 
 
 def _single_factorial(value):
-    """Help to compute factorial for a single integer."""
+    """
+    Help to compute factorial for a single integer.
+
+    Parameters
+    ----------
+    value : int
+        An integer for which the factorial is to be computed.
+
+    Returns
+    -------
+    int
+        Factorial of 'value'.
+
+    Raises
+    ------
+    ValueError
+        If 'value' is negative.
+
+    Examples
+    --------
+    >>> _single_factorial(5)
+    120
+
+    >>> _single_factorial(0)
+    1
+
+    >>> _single_factorial(1)
+    1
+
+    Handling negative input by raising ValueError:
+    >>> _single_factorial(-1)  
+    Traceback (most recent call last):
+    ...
+    ValueError: Factorial not defined for negative numbers.
+    """
     if value < 0:
         raise ValueError("Factorial not defined for negative numbers.")
     if value == 0:
