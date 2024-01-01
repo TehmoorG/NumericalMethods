@@ -8,7 +8,7 @@ Ensure you have Python 3.x installed. Clone the repository and navigate to the p
 
 ```bash
 git clone [your-repository-link]
-cd mpm-assessment-2-acse-tg1523
+cd NumericalMethods
 ```
 ### Install the required dependencies:
 
@@ -20,7 +20,6 @@ pip install -r requirements.txt
 
 - **Taylor Series Approximations:** Provides approximations for functions like `sin`, `cos`, `tan`, and `exp`.
 - **Bessel Functions:** Efficient computation of Bessel functions.
-- [Add other features or modules here.]
 
 ## Usage
 
@@ -31,7 +30,7 @@ from acsefunctions.taylor import exp
 result = exp(5, N=20)
 print(result)
 ```
-## Building Documentation
+
 ## Building Documentation
 
 To build the Sphinx documentation locally, you'll need Sphinx installed. This is given in `requirements.txt`:
@@ -43,7 +42,7 @@ After running the command, a build/ directory will be created with the compiled 
 
 ## Accuracy Analysis
 
-We've conducted accuracy analysis for our Taylor series approximations, comparing them against established libraries like NumPy. Detailed analysis can be found in the [Accuracy Analysis](#accuracy-analysis) section.
+We've conducted accuracy analysis for our Taylor series approximations, comparing them against established libraries like NumPy. Detailed analysis can be found in the `comparison.ipynb` section.
 
 ## Testing
 
