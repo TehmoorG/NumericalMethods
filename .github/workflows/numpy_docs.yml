@@ -22,7 +22,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-
+        pip install -r requirements.txt
     - name: Run doctest
       run: |
         python -m doctest -v acsefunctions/taylor.py acsefunctions/bessel.py
